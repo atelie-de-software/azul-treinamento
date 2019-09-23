@@ -1,16 +1,20 @@
 require 'dispel'
 require './src/jogo.rb'
 
-x      = 0
-y      = 0
-jogo   = Jogo.new
+jogo = Jogo.new
 
 Dispel::Screen.open do |screen|
   Dispel::Keyboard.output timeout: 0.5 do |key|
-    screen.draw jogo.tela
-    next unless key
-    next if     key == :timeout
+    jogo.esquerda if key == :left
+    jogo.direita  if key == :right
+    jogo.sobe     if key == :up
+    jogo.desce    if key == :down
 
-    exit(true) if key == :"Ctrl+c"
+    screen.draw jogo.tela
+
+    next          unless key
+    next          if     key == :timeout
+
+    exit(true)    if key == :"Ctrl+c"
   end
 end
