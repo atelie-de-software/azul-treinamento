@@ -1,8 +1,9 @@
 require './src/jogo'
 
 describe 'Tela inicial' do
+  jogo = Jogo.new
+
   it 'deve ter o pacman no centro' do
-    jogo = Jogo.new
     expected = "     \n"+
                "     \n"+
                "  c  \n"+
@@ -11,13 +12,16 @@ describe 'Tela inicial' do
 
     expect(jogo.tela).to eq expected
   end
-  xit 'deve ter o pacman anda para direita' do
+
+  xit 'o pacman deve andar para direita' do
     jogo.direita
+
     expected = "     \n"+
                "     \n"+
                "   c \n"+
                "     \n"+
                "     \n"
+
     expect(jogo.tela).to eq expected
   end
 end
