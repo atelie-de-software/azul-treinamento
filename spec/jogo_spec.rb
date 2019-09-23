@@ -1,9 +1,9 @@
 require './src/jogo'
 
 describe 'Tela inicial' do
-  xit 'deve ter o pacman no centro' do
-    jogo = Jogo.new
+  jogo = Jogo.new
 
+  it 'deve ter o pacman no centro' do
     expected = "     \n"+
                "     \n"+
                "  c  \n"+
