@@ -4,13 +4,21 @@ class Jogo
     @pac_position_y = pac_position_y
   end
 
-  def sobe; end
+  def sobe
+    @pac_position_y -= 1
+  end
 
-  def desce; end
+  def desce
+    @pac_position_y += 1
+  end
 
-  def esquerda; end
+  def esquerda
+    @pac_position_x -= 1
+  end
 
-  def direita; end
+  def direita
+    @pac_position_x += 1
+  end
 
   def tiro; end
 
