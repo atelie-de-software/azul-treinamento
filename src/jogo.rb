@@ -1,4 +1,9 @@
 class Jogo
+  def initialize(pac_position_x = 2, pac_position_y = 2)
+    @pac_position_x = pac_position_x
+    @pac_position_y = pac_position_y
+  end
+
   def sobe; end
 
   def desce; end
@@ -9,12 +14,12 @@ class Jogo
 
   def tiro; end
 
-  def tela(pac_position_x = 2, pac_position_y = 2)
+  def tela
     tela_default = ""
 
     5.times do |y|
       5.times do |x|
-        if pac_position_x == x && pac_position_y == y
+        if @pac_position_x == x && @pac_position_y == y
           tela_default += "c"
           next
         end
