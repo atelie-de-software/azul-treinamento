@@ -226,4 +226,21 @@ describe 'Tela inicial' do
 
     expect(jogo.tela).to eq expected
   end
+
+  context "Quando pac man passar na frutinha" do
+    xit "Deve sumir com a frutinha e ficar grande" do
+      jogo.desce
+      jogo.desce
+      jogo.esquerda
+      jogo.esquerda
+      jogo.sobe
+
+      expected = "*   f\n"+
+                 "     \n"+
+                 "     \n"+
+                 "C    \n"+
+                 "    *\n"
+      expect(jogo.tela).to eq expected
+    end
+  end
 end
