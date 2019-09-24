@@ -7,7 +7,7 @@ class Jogo
     @ball_1_live    = true
     @ball_2         = [4,4]
     @ball_2_live    = true
-    @ghost_1        = [0,4]
+    @ghost_1        = [4,0]
     @ghost_1_live   = false
     @tick_counter   = 0
   end
@@ -50,23 +50,20 @@ class Jogo
         @ball_1_live = false if @ball_1 == [@pac_position_x, @pac_position_y]
         @ball_2_live = false if @ball_2 == [@pac_position_x, @pac_position_y]
 
-        if @ball_1 == [x,y]
-          if @ball_1_live
-            @tela_calculada += (x == 4 ? "*\n" : "*")
-            next
-          end
+        if @ball_1 == [x,y] && @ball_1_live
+          @tela_calculada += (x == 4 ? "*\n" : "*")
+          next
         end
 
-        if @ball_2 == [x,y]
-          if @ball_2_live
-            @tela_calculada += (x == 4 ? "*\n" : "*")
-            next
-          end
+        if @ball_2 == [x,y] && @ball_2_live
+          @tela_calculada += (x == 4 ? "*\n" : "*")
+          next
         end
 
         @ghost_1_live = true if @tick_counter == 5
         if @ghost_1 == [x,y] && @ghost_1_live
-          @tela_calculada += (y == 4 ? "f\n" : "f")
+          @tela_calculada += (x == 4 ? "f\n" : "f")
+          next
         end
 
         @tela_calculada += " "
@@ -76,7 +73,6 @@ class Jogo
   end
 
   def tick
-    puts @tick_counter
     @tick_counter += 1
   end
 end

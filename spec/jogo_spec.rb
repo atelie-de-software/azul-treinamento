@@ -160,7 +160,7 @@ describe 'Tela inicial' do
     end
   end
 
-  xit 'Após 5 ticks deve aparecer um fantasma' do
+  it 'Após 5 ticks deve aparecer um fantasma' do
     jogo.tick
     jogo.tick
     jogo.tick

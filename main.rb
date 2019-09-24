@@ -5,6 +5,7 @@ jogo = Jogo.new
 
 Dispel::Screen.open do |screen|
   Dispel::Keyboard.output timeout: 0.5 do |key|
+    jogo.tick
     jogo.esquerda if key == :left
     jogo.direita  if key == :right
     jogo.sobe     if key == :up
