@@ -121,4 +121,13 @@ describe 'Tela inicial' do
       end
     end
   end
+
+  it 'deve iniciar com bolinhas nas extremidades' do
+    expected = " *   \n"+
+               "     \n"+
+               "  c  \n"+
+               "     \n"+
+               "    *\n"
+    expect(jogo.tela).to eq expected
+  end
 end
