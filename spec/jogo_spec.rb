@@ -57,9 +57,10 @@ describe 'Tela inicial' do
   end
 
   context 'chegando na extremidade a direita' do
-    let!(:jogo) {Jogo.new(5)}
+    let!(:jogo) { Jogo.new(4) }
+
     context 'andando para a direita' do
-      xit 'deve o pacman permanecer parado' do
+      it 'deve o pacman permanecer parado' do
         jogo.direita
         expected = "     \n"+
                    "     \n"+
@@ -73,7 +74,8 @@ describe 'Tela inicial' do
   end
 
   context 'chegando na extremidade a esquerda' do
-    let!(:jogo) {Jogo.new(0)}
+    let!(:jogo) { Jogo.new(0) }
+
     context 'andando para a esquerda' do
       xit 'deve o pacman permanecer parado' do
         jogo.esquerda

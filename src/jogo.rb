@@ -17,7 +17,7 @@ class Jogo
   end
 
   def direita
-    @pac_position_x += 1
+    @pac_position_x += 1 if @pac_position_x + 1 < 5
   end
 
   def tiro; end
@@ -28,7 +28,7 @@ class Jogo
     5.times do |y|
       5.times do |x|
         if @pac_position_x == x && @pac_position_y == y
-          tela_default += "c"
+          tela_default += (x == 4 ? "c\n" : "c")
           next
         end
 
