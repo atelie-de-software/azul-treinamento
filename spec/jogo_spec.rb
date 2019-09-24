@@ -77,7 +77,7 @@ describe 'Tela inicial' do
     let!(:jogo) { Jogo.new(0) }
 
     context 'andando para a esquerda' do
-      xit 'deve o pacman permanecer parado' do
+      it 'deve o pacman permanecer parado' do
         jogo.esquerda
         expected = "     \n"+
                    "     \n"+
@@ -93,7 +93,7 @@ describe 'Tela inicial' do
   context 'chegando na extremidade superior' do
     let!(:jogo) {Jogo.new(2, 0)}
     context 'andando para cima' do
-      xit 'deve o pacman permanecer parado' do
+      it 'deve o pacman permanecer parado' do
         jogo.sobe
         expected = "  c  \n"+
                    "     \n"+
@@ -107,9 +107,9 @@ describe 'Tela inicial' do
   end
 
   context 'chegando na extremidade inferior' do
-    let!(:jogo) {Jogo.new(2, 5)}
+    let!(:jogo) {Jogo.new(2, 4)}
     context 'andando para baixo' do
-      xit 'deve o pacman permanecer parado' do
+      it 'deve o pacman permanecer parado' do
         jogo.desce
         expected = "     \n"+
                    "     \n"+
@@ -119,6 +119,37 @@ describe 'Tela inicial' do
 
         expect(jogo.tela).to eq expected
       end
+    end
+  end
+
+  xit 'deve iniciar com bolinhas nas extremidades' do
+    expected = " *   \n"+
+               "     \n"+
+               "  c  \n"+
+               "     \n"+
+               "    *\n"
+    expect(jogo.tela).to eq expected
+  end
+
+  context 'quando o pacman passar pela bolinha' do
+    xit 'deve sumir com ela' do
+      inicio = " *   \n"+
+               "     \n"+
+               "  c  \n"+
+               "     \n"+
+               "    *\n"
+      jogo.desce
+      jogo.desce
+      jogo.direita
+      jogo.direita
+      jogo.sobe
+
+      expected = " *   \n"+
+                 "     \n"+
+                 "     \n"+
+                 "    c\n"+
+                 "     \n"
+      expect(jogo.tela).to eq expected
     end
   end
 end
