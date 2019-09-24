@@ -134,10 +134,10 @@ describe 'Tela inicial' do
   context 'quando o pacman passar pela bolinha' do
     xit 'deve sumir com ela' do
       inicio = " *   \n"+
-                 "     \n"+
-                 "  c  \n"+
-                 "     \n"+
-                 "    *\n"
+               "     \n"+
+               "  c  \n"+
+               "     \n"+
+               "    *\n"
       jogo.desce
       jogo.desce
       jogo.direita
