@@ -123,7 +123,7 @@ describe 'Tela inicial' do
   end
 
   xit 'deve iniciar com bolinhas nas extremidades' do
-    expected = " *   \n"+
+    expected = "*    \n"+
                "     \n"+
                "  c  \n"+
                "     \n"+
