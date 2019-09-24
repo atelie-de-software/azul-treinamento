@@ -22,13 +22,6 @@ class Jogo
 
   def tiro; end
 
-  def tecla(key)
-    esquerda if key == :left
-    direita  if key == :right
-    sobe     if key == :up
-    desce    if key == :down
-  end
-
   def tela
     tela_default = ""
 
