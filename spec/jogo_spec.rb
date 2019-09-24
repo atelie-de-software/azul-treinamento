@@ -133,7 +133,7 @@ describe 'Tela inicial' do
 
   context 'quando o pacman passar pela bolinha' do
     xit 'deve sumir com ela' do
-      inicio = " *   \n"+
+      inicio = "*    \n"+
                "     \n"+
                "  c  \n"+
                "     \n"+
@@ -144,7 +144,7 @@ describe 'Tela inicial' do
       jogo.direita
       jogo.sobe
 
-      expected = " *   \n"+
+      expected = "*    \n"+
                  "     \n"+
                  "     \n"+
                  "    c\n"+
