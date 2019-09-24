@@ -131,7 +131,7 @@ describe 'Tela inicial' do
         jogo.desce
         jogo.desce
         jogo.desce
-        
+
         expected = "*    \n"+
                    "     \n"+
                    "     \n"+
@@ -144,7 +144,7 @@ describe 'Tela inicial' do
   end
 
   context 'quando o pacman passar pela bolinha' do
-    xit 'deve sumir com ela' do
+    it 'deve sumir com ela' do
       jogo.desce
       jogo.desce
       jogo.direita
