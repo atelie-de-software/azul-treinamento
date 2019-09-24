@@ -107,9 +107,9 @@ describe 'Tela inicial' do
   end
 
   context 'chegando na extremidade inferior' do
-    let!(:jogo) {Jogo.new(2, 5)}
+    let!(:jogo) {Jogo.new(2, 4)}
     context 'andando para baixo' do
-      xit 'deve o pacman permanecer parado' do
+      it 'deve o pacman permanecer parado' do
         jogo.desce
         expected = "     \n"+
                    "     \n"+

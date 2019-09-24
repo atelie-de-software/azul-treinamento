@@ -9,7 +9,7 @@ class Jogo
   end
 
   def desce
-    @pac_position_y += 1
+    @pac_position_y += 1 if @pac_position_y + 1 < 5
   end
 
   def esquerda
