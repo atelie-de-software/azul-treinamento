@@ -163,4 +163,14 @@ describe 'Tela inicial' do
 
     expect(jogo.tela).to eq expected
   end
+
+  xit 'Fantasma andar independente no jogo iniciando para a esquerda' do
+    expected = "*  f \n"+
+               "     \n"+
+               "  c  \n"+
+               "     \n"+
+               "    *\n"
+
+    expect(jogo.tela).to eq expected
+  end
 end
