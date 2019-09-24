@@ -39,6 +39,11 @@ class Jogo
           next
         end
 
+        if (x == 0 && y == 0) || (x == 4 && y == 4)
+          tela_default += (x == 4 ? "*\n" : "*")
+          next
+        end
+
         tela_default += " "
         tela_default += "\n" if x == 4
       end
