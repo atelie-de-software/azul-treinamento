@@ -173,4 +173,16 @@ describe 'Tela inicial' do
 
     expect(jogo.tela).to eq expected
   end
+
+  context "Quando pac man relar no fantasma" do
+    xit "Dar game over no jogo" do
+      expected = "     \n"+
+                 " game\n"+
+                 " over\n"+
+                 "     \n"+
+                 "     \n"
+
+      expect(jogo.tela).to eq expected
+    end
+  end
 end
