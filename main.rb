@@ -10,6 +10,8 @@ Dispel::Screen.open do |screen|
     jogo.sobe     if key == :up
     jogo.desce    if key == :down
 
+    jogo.tick
+
     screen.draw " PACMAN\n" + jogo.tela
 
     next          unless key
