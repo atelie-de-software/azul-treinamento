@@ -152,4 +152,25 @@ describe 'Tela inicial' do
       expect(jogo.tela).to eq expected
     end
   end
+
+  xit 'Após 5 ticks deve aparecer um fantasma' do
+    inicio = "*    \n"+
+             "     \n"+
+             "  c  \n"+
+             "     \n"+
+             "    *\n"
+    jogo.tick
+    jogo.tick
+    jogo.tick
+    jogo.tick
+    jogo.tick
+
+    expected = "*   f\n"+
+               "     \n"+
+               "  c  \n"+
+               "     \n"+
+               "    *\n"
+
+    expect(jogo.tela).to eq expected
+  end
 end
