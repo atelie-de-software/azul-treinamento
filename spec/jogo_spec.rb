@@ -93,7 +93,7 @@ describe 'Tela inicial' do
   context 'chegando na extremidade superior' do
     let!(:jogo) {Jogo.new(2, 0)}
     context 'andando para cima' do
-      xit 'deve o pacman permanecer parado' do
+      it 'deve o pacman permanecer parado' do
         jogo.sobe
         expected = "  c  \n"+
                    "     \n"+

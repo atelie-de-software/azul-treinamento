@@ -5,7 +5,7 @@ class Jogo
   end
 
   def sobe
-    @pac_position_y -= 1
+    @pac_position_y -= 1 if @pac_position_y - 1 >= 0
   end
 
   def desce
