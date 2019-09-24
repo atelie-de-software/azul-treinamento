@@ -27,12 +27,12 @@ class Jogo
 
     5.times do |y|
       5.times do |x|
-        if @pac_position_x == x && @pac_position_y == y
+        if [[x,y]].include? [@pac_position_x, @pac_position_y]
           tela_default += (x == 4 ? "c\n" : "c")
           next
         end
 
-        if (x == 0 && y == 0) || (x == 4 && y == 4)
+        if [[0,0],[4,4]].include? [x,y]
           tela_default += (x == 4 ? "*\n" : "*")
           next
         end
