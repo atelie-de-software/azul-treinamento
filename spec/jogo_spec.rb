@@ -149,6 +149,7 @@ describe 'Tela inicial' do
   end
 
   xit 'Após 5 ticks deve aparecer um fantasma' do
+    let!(:jogo) {Jogo.new}
     jogo.tick
     jogo.tick
     jogo.tick
@@ -164,7 +165,9 @@ describe 'Tela inicial' do
     expect(jogo.tela).to eq expected
   end
 
-  xit 'Fantasma andar independente no jogo iniciando para a esquerda' do
+  xit 'Fantasma anda para a esquerda a cada tick' do
+    jogo.tick
+
     expected = "*  f \n"+
                "     \n"+
                "  c  \n"+
@@ -176,6 +179,10 @@ describe 'Tela inicial' do
 
   context "Quando pac man relar no fantasma" do
     xit "Dar game over no jogo" do
+      jogo.sobe
+      jogo.sobe
+      jogo.direita
+
       expected = "     \n"+
                  " game\n"+
                  " over\n"+
