@@ -161,7 +161,6 @@ describe 'Tela inicial' do
   end
 
   xit 'Após 5 ticks deve aparecer um fantasma' do
-    let!(:jogo) {Jogo.new}
     jogo.tick
     jogo.tick
     jogo.tick
@@ -206,7 +205,6 @@ describe 'Tela inicial' do
   end
 
   xit 'Após 10 ticks deve aparecer a frutinha' do
-    let!(:jogo) {Jogo.new}
     jogo.tick
     jogo.tick
     jogo.tick
