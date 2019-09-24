@@ -122,12 +122,34 @@ describe 'Tela inicial' do
     end
   end
 
-  it 'deve iniciar com bolinhas nas extremidades' do
+  xit 'deve iniciar com bolinhas nas extremidades' do
     expected = " *   \n"+
                "     \n"+
                "  c  \n"+
                "     \n"+
                "    *\n"
     expect(jogo.tela).to eq expected
+  end
+
+  context 'quando o pacman passar pela bolinha' do
+    xit 'deve sumir com ela' do
+      inicio = " *   \n"+
+                 "     \n"+
+                 "  c  \n"+
+                 "     \n"+
+                 "    *\n"
+      jogo.desce
+      jogo.desce
+      jogo.direita
+      jogo.direita
+      jogo.sobe
+
+      expected = " *   \n"+
+                 "     \n"+
+                 "     \n"+
+                 "    c\n"+
+                 "     \n"
+      expect(jogo.tela).to eq expected
+    end
   end
 end
