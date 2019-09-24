@@ -66,11 +66,14 @@ describe 'Tela inicial' do
   end
 
   context 'chegando na extremidade a direita' do
-    let!(:jogo) { Jogo.new(4) }
+    let!(:jogo) { Jogo.new }
 
     context 'andando para a direita' do
       it 'deve o pacman permanecer parado' do
         jogo.direita
+        jogo.direita
+        jogo.direita
+
         expected = "*    \n"+
                    "     \n"+
                    "    c\n"+
@@ -83,11 +86,14 @@ describe 'Tela inicial' do
   end
 
   context 'chegando na extremidade a esquerda' do
-    let!(:jogo) { Jogo.new(0) }
+    let!(:jogo) { Jogo.new }
 
     context 'andando para a esquerda' do
       it 'deve o pacman permanecer parado' do
         jogo.esquerda
+        jogo.esquerda
+        jogo.esquerda
+
         expected = "*    \n"+
                    "     \n"+
                    "c    \n"+
@@ -100,10 +106,13 @@ describe 'Tela inicial' do
   end
 
   context 'chegando na extremidade superior' do
-    let!(:jogo) {Jogo.new(2, 0)}
+    let!(:jogo) {Jogo.new}
     context 'andando para cima' do
       it 'deve o pacman permanecer parado' do
         jogo.sobe
+        jogo.sobe
+        jogo.sobe
+
         expected = "* c  \n"+
                    "     \n"+
                    "     \n"+
@@ -116,10 +125,13 @@ describe 'Tela inicial' do
   end
 
   context 'chegando na extremidade inferior' do
-    let!(:jogo) {Jogo.new(2, 4)}
+    let!(:jogo) {Jogo.new}
     context 'andando para baixo' do
       it 'deve o pacman permanecer parado' do
         jogo.desce
+        jogo.desce
+        jogo.desce
+        
         expected = "*    \n"+
                    "     \n"+
                    "     \n"+
