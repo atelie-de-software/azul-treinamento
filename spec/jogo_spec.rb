@@ -77,7 +77,7 @@ describe 'Tela inicial' do
     let!(:jogo) { Jogo.new(0) }
 
     context 'andando para a esquerda' do
-      xit 'deve o pacman permanecer parado' do
+      it 'deve o pacman permanecer parado' do
         jogo.esquerda
         expected = "     \n"+
                    "     \n"+
