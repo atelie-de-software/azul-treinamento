@@ -204,4 +204,26 @@ describe 'Tela inicial' do
       expect(jogo.tela).to eq expected
     end
   end
+
+  xit 'Após 10 ticks deve aparecer a frutinha' do
+    let!(:jogo) {Jogo.new}
+    jogo.tick
+    jogo.tick
+    jogo.tick
+    jogo.tick
+    jogo.tick
+    jogo.tick
+    jogo.tick
+    jogo.tick
+    jogo.tick
+    jogo.tick
+
+    expected = "*   f\n"+
+               "     \n"+
+               "  c  \n"+
+               "     \n"+
+               "6   *\n"
+
+    expect(jogo.tela).to eq expected
+  end
 end
