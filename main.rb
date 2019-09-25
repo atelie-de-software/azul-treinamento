@@ -29,7 +29,7 @@ if resposta == 's'
   update do
     clear
     jogo.tick
-    pixel = 0
+
     jogo.tela.split("\n")[0].each_char.with_index { |c, index|
       Image.new('images/food.png', x: index * 50, y: 0)  if c == "*"
       Image.new('images/p_right.png', x: index * 50, y: 0)  if c == "c"
