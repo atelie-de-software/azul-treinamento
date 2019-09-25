@@ -1,20 +1,22 @@
-require 'dispel'
 require './src/jogo.rb'
+require 'dispel'
 require 'ruby2d'
 
 # Set the window size
 set width: 250, height: 250
 set background: 'black'
 
-jogo = Jogo.new
+jogo    = Jogo.new
+posicao = 'right'
 
-
-p "Deseja iniciar o modo grafico? s/n"
+puts 'Deseja iniciar o modo grafico? s/n'
 resposta = gets[0]
 
 if resposta == 's'
   on :key_down do |event|
-    case event.key
+    posicao = event.key
+
+    case posicao
       when 'left'
         jogo.esquerda
       when 'right'
@@ -31,28 +33,28 @@ if resposta == 's'
     jogo.tick
 
     jogo.tela.split("\n")[0].each_char.with_index { |c, index|
-      Image.new('images/food.png', x: index * 50, y: 0)  if c == "*"
-      Image.new('images/p_right.png', x: index * 50, y: 0)  if c == "c"
+      Image.new('images/food.png',              x: index * 50, y: 0) if c == '*'
+      Image.new("images/pacman_#{posicao}.png", x: index * 50, y: 0) if c == 'c'
     }
 
     jogo.tela.split("\n")[1].each_char.with_index { |c, index|
-      Image.new('images/food.png', x: index * 50, y: 50)  if c == "*"
-      Image.new('images/p_right.png', x: index * 50, y: 50)  if c == "c"
+      Image.new('images/food.png',              x: index * 50, y: 50) if c == '*'
+      Image.new("images/pacman_#{posicao}.png", x: index * 50, y: 50) if c == 'c'
     }
 
     jogo.tela.split("\n")[2].each_char.with_index { |c, index|
-      Image.new('images/food.png', x: index * 50, y: 100)  if c == "*"
-      Image.new('images/p_right.png', x: index * 50, y: 100)  if c == "c"
+      Image.new('images/food.png',              x: index * 50, y: 100) if c == '*'
+      Image.new("images/pacman_#{posicao}.png", x: index * 50, y: 100) if c == 'c'
     }
 
     jogo.tela.split("\n")[3].each_char.with_index { |c, index|
-      Image.new('images/food.png', x: index * 50, y: 150)  if c == "*"
-      Image.new('images/p_right.png', x: index * 50, y: 150)  if c == "c"
+      Image.new('images/food.png',              x: index * 50, y: 150) if c == '*'
+      Image.new("images/pacman_#{posicao}.png", x: index * 50, y: 150) if c == 'c'
     }
 
     jogo.tela.split("\n")[4].each_char.with_index { |c, index|
-      Image.new('images/food.png', x: index * 50, y: 200)  if c == "*"
-      Image.new('images/p_right.png', x: index * 50, y: 200)  if c == "c"
+      Image.new('images/food.png',              x: index * 50, y: 200) if c == '*'
+      Image.new("images/pacman_#{posicao}.png", x: index * 50, y: 200) if c == 'c'
     }
   end
 
