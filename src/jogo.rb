@@ -74,5 +74,26 @@ class Jogo
 
   def tick
     @tick_counter += 1
+    move_ghost_1
+  end
+
+  def move_ghost_1
+    ghost_axys if (@tick_counter % 2).zero? && @ghost_1_live
+  end
+
+  def ghost_axys
+    module_x = (@ghost_1[0] - @pac_position_x).abs
+    module_y = (@ghost_1[1] - @pac_position_y).abs
+    return move_ghost_x_axys if module_x >= module_y
+
+    move_ghost_y_axys
+  end
+
+  def move_ghost_x_axys
+    @ghost_1[0] = @ghost_1[0] > @pac_position_x ? (@ghost_1[0] - 1) : (@ghost_1[0] + 1)
+  end
+
+  def move_ghost_y_axys
+    @ghost_1[1] = @ghost_1[1] > @pac_position_y ? (@ghost_1[1] - 1) : (@ghost_1[1] + 1)
   end
 end
