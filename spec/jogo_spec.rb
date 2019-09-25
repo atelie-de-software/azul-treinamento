@@ -160,32 +160,58 @@ describe 'Tela inicial' do
     end
   end
 
-  it 'Após 5 ticks deve aparecer um fantasma' do
-    jogo.tick
-    jogo.tick
-    jogo.tick
-    jogo.tick
-    jogo.tick
+  context "Após 5 ticks" do
+    let!(:jogo) { Jogo.new }
 
-    expected = "*   f\n"+
-               "     \n"+
-               "  c  \n"+
-               "     \n"+
-               "    *\n"
+    xit "Deve aparecer um fantasma" do
+      jogo.tick
+      jogo.tick
+      jogo.tick
+      jogo.tick
+      jogo.tick
 
-    expect(jogo.tela).to eq expected
-  end
+      expected = "*   f\n"+
+                 "     \n"+
+                 "  c  \n"+
+                 "     \n"+
+                 "    *\n"
 
-  xit 'Fantasma anda para a esquerda a cada tick' do
-    jogo.tick
+      expect(jogo.tela).to eq expected
+    end
 
-    expected = "*  f \n"+
-               "     \n"+
-               "  c  \n"+
-               "     \n"+
-               "    *\n"
+    xit 'Quando o fantasma anda' do
+      jogo.tick
 
-    expect(jogo.tela).to eq expected
+      xit 'ele deve perseguir o pac man' do
+        expected = "*  f \n"+
+                   "     \n"+
+                   "  c  \n"+
+                   "     \n"+
+                   "    *\n"
+
+        expect(jogo.tela).to eq expected
+
+        jogo.tick
+
+        expected = "* f  \n"+
+                   "     \n"+
+                   "  c  \n"+
+                   "     \n"+
+                   "    *\n"
+
+        expect(jogo.tela).to eq expected
+
+        jogo.tick
+
+        expected = "*    \n"+
+                   "  f  \n"+
+                   "  c  \n"+
+                   "     \n"+
+                   "    *\n"
+
+        expect(jogo.tela).to eq expected
+      end
+    end
   end
 
   context "Quando pac man relar no fantasma" do
