@@ -131,7 +131,7 @@ describe 'Tela inicial' do
         jogo.desce
         jogo.desce
         jogo.desce
-        
+
         expected = "*    \n"+
                    "     \n"+
                    "     \n"+
@@ -144,7 +144,7 @@ describe 'Tela inicial' do
   end
 
   context 'quando o pacman passar pela bolinha' do
-    xit 'deve sumir com ela' do
+    it 'deve sumir com ela' do
       jogo.desce
       jogo.desce
       jogo.direita
@@ -160,8 +160,7 @@ describe 'Tela inicial' do
     end
   end
 
-  xit 'Após 5 ticks deve aparecer um fantasma' do
-    let!(:jogo) {Jogo.new}
+  it 'Após 5 ticks deve aparecer um fantasma' do
     jogo.tick
     jogo.tick
     jogo.tick
@@ -201,6 +200,44 @@ describe 'Tela inicial' do
                  "     \n"+
                  "     \n"
 
+      expect(jogo.tela).to eq expected
+    end
+  end
+
+  xit 'Após 10 ticks deve aparecer a frutinha' do
+    jogo.tick
+    jogo.tick
+    jogo.tick
+    jogo.tick
+    jogo.tick
+    jogo.tick
+    jogo.tick
+    jogo.tick
+    jogo.tick
+    jogo.tick
+
+    expected = "*   f\n"+
+               "     \n"+
+               "  c  \n"+
+               "     \n"+
+               "6   *\n"
+
+    expect(jogo.tela).to eq expected
+  end
+
+  context "Quando pac man passar na frutinha" do
+    xit "Deve sumir com a frutinha e ficar grande" do
+      jogo.desce
+      jogo.desce
+      jogo.esquerda
+      jogo.esquerda
+      jogo.sobe
+
+      expected = "*   f\n"+
+                 "     \n"+
+                 "     \n"+
+                 "C    \n"+
+                 "    *\n"
       expect(jogo.tela).to eq expected
     end
   end
