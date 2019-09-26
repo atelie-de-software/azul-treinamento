@@ -186,7 +186,7 @@ describe 'RSpecMan' do
 
     context 'quando o pacman entrar em contato com o fantasma' do
       xit 'deve aparecer a tela de game over' do
-        22.times { game.tick }
+        21.times { game.tick }
 
         expected = 'GAME OVER'
 
@@ -207,14 +207,74 @@ describe 'RSpecMan' do
         expect(game.screen).to eq(expected)
       end
     end
+
+    context 'após 1 ticks' do
+      xit 'deve aparecer uma parede' do
+        game.tick
+
+        expected = "*     \n" \
+                    "     \n" \
+                    "  c  \n" \
+                    "  #  \n" \
+                    "    *\n"
+
+        expect(game.screen).to eq(expected)
+      end
+    end
+
+    context 'Quando houver barreiras' do
+      xit 'pacman nao deve atravessar os blocos' do
+        game.tick
+        game.down
+
+        expected = "*     \n" \
+                    "     \n" \
+                    "  c  \n" \
+                    "  #  \n" \
+                    "    *\n"
+
+        expect(game.screen).to eq(expected)
+
+        game.left
+        game.down
+        game.right
+
+        expected =  "*    \n" \
+                    "     \n" \
+                    "     \n" \
+                    " c#  \n" \
+                    "    *\n"
+
+        expect(game.screen).to eq(expected)
+
+        game.down
+        game.right
+        game.up
+
+        expected =  "*    \n" \
+                    "     \n" \
+                    "     \n" \
+                    "  #  \n" \
+                    "  c *\n"
+
+        expect(game.screen).to eq(expected)
+
+        game.right
+        game.up
+        game.left
+
+        expected =  "*    \n" \
+                    "     \n" \
+                    "     \n" \
+                    "  #c \n" \
+                    "    *\n"
+
+        expect(game.screen).to eq(expected)
+      end
+    end
   end
 end
 
-
-
-
-
-#
 #   context "Após 5 ticks" do
 #     let!(:game) { Jogo.new }
 #
