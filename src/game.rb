@@ -1,4 +1,6 @@
 class Game
+  X_BOUNDARY = 4
+
   def initialize(pac_position_x = 2, pac_position_y = 2)
     @screen           = ""
     @pac_position_x   = pac_position_x
@@ -37,7 +39,7 @@ class Game
     5.times do |y|
       5.times do |x|
         if [[x,y]].include? [@pac_position_x, @pac_position_y]
-          @screen += (x == 4 ? "c\n" : "c")
+          @screen += (check_x_boundaries(x) ? "c\n" : "c")
           next
         end
 
@@ -45,23 +47,23 @@ class Game
         @ball_two_live = false if @ball_two == [@pac_position_x, @pac_position_y]
 
         if @ball_one == [x,y] && @ball_one_live
-          @screen += (x == 4 ? "*\n" : "*")
+          @screen += (check_x_boundaries(x) ? "*\n" : "*")
           next
         end
 
         if @ball_two == [x,y] && @ball_two_live
-          @screen += (x == 4 ? "*\n" : "*")
+          @screen += (check_x_boundaries(x) ? "*\n" : "*")
           next
         end
 
         @ghost_live = true if @tick_counter == 5
         if @ghost == [x,y] && @ghost_live
-          @screen += (x == 4 ? "f\n" : "f")
+          @screen += (check_x_boundaries(x) ? "f\n" : "f")
           next
         end
 
         @screen += " "
-        @screen += "\n" if x == 4
+        @screen += "\n" if check_x_boundaries(x)
       end
     end
   end
@@ -90,5 +92,11 @@ class Game
 
   def move_ghost_y_axys
     @ghost[1] = @ghost[1] > @pac_position_y ? (@ghost[1] - 1) : (@ghost[1] + 1)
+  end
+
+  private
+
+  def check_x_boundaries(x)
+    x == X_BOUNDARY
   end
 end
