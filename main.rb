@@ -30,6 +30,7 @@ def graphic_mode(game, position)
       line.each_char.with_index do |c, x|
         Image.new('images/food.png',               x: x * 50, y: y * 50) if c == '*'
         Image.new("images/pacman_#{position}.png", x: x * 50, y: y * 50) if c == 'c'
+        Image.new("images/ghost.png",              x: x * 50, y: y * 50) if c == 'f'
       end
     end
   end
@@ -64,6 +65,7 @@ answer = gets[0]
 
 if answer == 's'
   graphic_mode(game, position)
+  game.tick
 else
   terminal_mode(game, position)
 end

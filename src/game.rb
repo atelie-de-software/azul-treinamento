@@ -69,10 +69,11 @@ class Game
   def tick
     @tick_counter += 1
     move_ghost
+    sleep(0.25)
   end
 
   def move_ghost
-    ghost_axys if (@tick_counter % 2).zero? && @ghost_live
+    ghost_axys if (@tick_counter % 4).zero? && @ghost_live
   end
 
   def ghost_axys
