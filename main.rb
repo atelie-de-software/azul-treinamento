@@ -47,8 +47,7 @@ def terminal_mode(game, position)
       game.up    if key == :up
       game.down  if key == :down
 
-      screen.draw " RSPECMAN\n" + game.screen
-
+      screen.draw " RSPECMAN\n" + game.screen + "#{game.game_over?}"
       next          unless key
       next          if     key == :timeout
       exit(true)    if     key == :"Ctrl+c"

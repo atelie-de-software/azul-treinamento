@@ -12,6 +12,7 @@ class Game
     @ghost            = [4,0]
     @ghost_live       = false
     @tick_counter     = 0
+    @game_over        = false
   end
 
   def screen
@@ -75,7 +76,12 @@ class Game
   end
 
   def move_ghost
+    game_over?
     ghost_axys if (@tick_counter % 4).zero? && @ghost_live
+  end
+
+  def game_over?
+    @game_over = true if @pac_position_x == @ghost[0] && @pac_position_y == @ghost[1] && @tick_counter > 5
   end
 
   def ghost_axys
