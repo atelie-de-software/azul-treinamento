@@ -175,16 +175,28 @@ describe 'RSpecMan' do
         game.tick
 
         expected = "*   f\n" \
-                   "     \n" \
-                   "  c  \n" \
-                   "     \n" \
-                   "    *\n"
+                    "     \n" \
+                    "  c  \n" \
+                    "     \n" \
+                    "    *\n"
+
+        expect(game.screen).to eq(expected)
+      end
+    end
+
+    context 'quando o pacman entrar em contato com o fantasma' do
+      it 'deve aparecer a tela de game over' do
+        22.times { game.tick }
+
+        expected = 'GAME OVER'
 
         expect(game.screen).to eq(expected)
       end
     end
   end
 end
+
+
 
 
 
