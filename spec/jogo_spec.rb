@@ -185,10 +185,24 @@ describe 'RSpecMan' do
     end
 
     context 'quando o pacman entrar em contato com o fantasma' do
-      it 'deve aparecer a tela de game over' do
+      xit 'deve aparecer a tela de game over' do
         22.times { game.tick }
 
         expected = 'GAME OVER'
+
+        expect(game.screen).to eq(expected)
+      end
+    end
+
+    context 'Quando nao houver mais comidas' do
+      xit 'deve aparecer a tela de congratulations' do
+
+        2.times { game.left }
+        2.times { game.up }
+        4.times { game.down }
+        4.times { game.right }
+
+        expected = 'Congratulations'
 
         expect(game.screen).to eq(expected)
       end
