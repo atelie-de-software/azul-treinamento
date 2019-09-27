@@ -70,12 +70,13 @@ describe 'RSpecMan' do
 
     context 'e pressionar para baixo' do
       it 'o RSpecMan deve andar para baixo' do
+        game.left
         game.down
 
         expected = "*    \n" \
                    "     \n" \
                    "     \n" \
-                   "  c  \n" \
+                   " c   \n" \
                    "    *\n"
 
         expect(game.screen).to eq(expected)
@@ -133,6 +134,7 @@ describe 'RSpecMan' do
 
       context 'inferior' do
         it 'o RSpecMan deve permanecer parado' do
+          game.left
           game.down
           game.down
           game.down
@@ -141,7 +143,7 @@ describe 'RSpecMan' do
                      "     \n" \
                      "     \n" \
                      "     \n" \
-                     "  c *\n"
+                     " c  *\n"
 
           expect(game.screen).to eq(expected)
         end
@@ -150,10 +152,10 @@ describe 'RSpecMan' do
 
     context 'e o RSpecMan passar por uma bolinha' do
       it 'ela deve sumir' do
-        game.down
-        game.down
         game.right
         game.right
+        game.down
+        game.down
         game.up
 
         expected = "*    \n" \
@@ -174,10 +176,10 @@ describe 'RSpecMan' do
         game.tick
         game.tick
 
-        expected = "*   f\n" \
+        expected =  "*   f\n" \
                     "     \n" \
                     "  c  \n" \
-                    "     \n" \
+                    "  #  \n" \
                     "    *\n"
 
         expect(game.screen).to eq(expected)
@@ -208,11 +210,11 @@ describe 'RSpecMan' do
       end
     end
 
-    context 'após 1 ticks' do
-      xit 'deve aparecer uma parede' do
+    context 'após 1 tick' do
+      it 'deve aparecer uma parede' do
         game.tick
 
-        expected = "*     \n" \
+        expected =  "*    \n" \
                     "     \n" \
                     "  c  \n" \
                     "  #  \n" \
@@ -223,11 +225,11 @@ describe 'RSpecMan' do
     end
 
     context 'Quando houver barreiras' do
-      xit 'pacman nao deve atravessar os blocos' do
+      it 'pacman nao deve atravessar os blocos' do
         game.tick
         game.down
 
-        expected = "*     \n" \
+        expected =  "*    \n" \
                     "     \n" \
                     "  c  \n" \
                     "  #  \n" \

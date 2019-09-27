@@ -20,9 +20,13 @@ class Game
     @screen
   end
 
+  def collision?(dx, dy)
+    return true if @pac_position_x + dx == 2 && @pac_position_y + dy == 3
+  end
+
   def move(dx, dy)
-    @pac_position_x = [[@pac_position_x + dx, 0].max, 4].min
-    @pac_position_y = [[@pac_position_y + dy, 0].max, 4].min
+    @pac_position_x = [[@pac_position_x + dx, 0].max, 4].min unless collision?(dx, dy)
+    @pac_position_y = [[@pac_position_y + dy, 0].max, 4].min unless collision?(dx, dy)
     render_screen
   end
 
@@ -63,10 +67,16 @@ class Game
           next
         end
 
-        @screen += " "
+        @screen += block(x, y)
         @screen += "\n" if check_x_boundaries(x)
       end
     end
+  end
+
+  def block(x, y)
+    return '#' if @tick_counter >= 1 && x == 2 && y == 3 
+    
+    " "
   end
 
   def tick
