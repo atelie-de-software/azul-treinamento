@@ -81,7 +81,7 @@ class Game
 
   def tick
     @tick_counter += 1
-    move_ghost
+    move_ghost unless game_over?
     sleep(0.25)
   end
 

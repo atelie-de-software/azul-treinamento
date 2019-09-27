@@ -26,12 +26,16 @@ def graphic_mode(game, position)
     clear
     game.tick
 
-    game.screen.split("\n").each_with_index do |line, y|
-      line.each_char.with_index do |c, x|
-        Image.new('images/food.png',               x: x * 50, y: y * 50) if c == '*'
-        Image.new("images/pacman_#{position}.png", x: x * 50, y: y * 50) if c == 'c'
-        Image.new("images/ghost.png",              x: x * 50, y: y * 50) if c == 'f'
-        Image.new("images/block.png",              x: x * 50, y: y * 50) if c == '#'
+    if game.game_over?
+      Image.new('images/game_over.png', x: 0, y: 0)
+    else
+      game.screen.split("\n").each_with_index do |line, y|
+        line.each_char.with_index do |c, x|
+          Image.new('images/food.png',               x: x * 50, y: y * 50) if c == '*'
+          Image.new("images/pacman_#{position}.png", x: x * 50, y: y * 50) if c == 'c'
+          Image.new("images/ghost.png",              x: x * 50, y: y * 50) if c == 'f'
+          Image.new("images/block.png",              x: x * 50, y: y * 50) if c == '#'
+        end
       end
     end
   end
